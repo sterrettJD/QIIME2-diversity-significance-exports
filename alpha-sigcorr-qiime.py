@@ -69,18 +69,18 @@ def sig_corr_export(metadata=metadata_API,rarefied_table=rarefied,phylogenetic_t
 	    #creating a hierarchical index to say what results came from where
 	    df.columns = pd.MultiIndex.from_product([variables, df.iloc[:,-5:]])
 
-	    print('Added the results from {} significance tests for {}.'.format(n,alpha))
+	    print(f'Added the results from {n} significance tests for {alpha}.')
 
-	    df.to_csv('../{}.csv'.format(alpha))
-	    print('Exported csv for {}'.format(alpha))
+	    df.to_csv(f'../{alpha}.csv')
+	    print(f'Exported csv for {alpha}')
 	    
 	    os.chdir(go_back)
 
 	    #Time for correlation results
 	    globals()[alpha + '_corr'] = diversity.actions.alpha_correlation(globals()[alpha], metadata_API)
-	    globals()[alpha + '_corr'].visualization.export_data('{}_correlation'.format(alpha))
+	    globals()[alpha + '_corr'].visualization.export_data(f'{alpha}_correlation')
 	    
-	    path = os.getcwd() + '/{}_correlation'.format(alpha)
+	    path = os.getcwd() + f'/{alpha}_correlation'
 
 	    df = pd.DataFrame()
 	    n=0
@@ -112,9 +112,9 @@ def sig_corr_export(metadata=metadata_API,rarefied_table=rarefied,phylogenetic_t
 
 	    os.chdir(go_back)
 
-	    print('Added results from {} correlation tests for {}.'.format(n,alpha))
+	    print(f'Added results from {n} correlation tests for {alpha}.')
 	    
-	    df.to_csv('{}_corr.csv'.format(alpha))
+	    df.to_csv(f'{alpha}_corr.csv')
 
 sig_corr_export(metadata=metadata_API,
 	rarefied_table=rarefied,
