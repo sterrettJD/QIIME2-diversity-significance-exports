@@ -1,6 +1,5 @@
 from qiime2 import Metadata, Artifact
 from qiime2.plugins import feature_table, diversity
-#from qiime2.plugins.diversity.pipelines import core_metrics_phylogenetic
 from qiime2.plugins.diversity.visualizers import beta_group_significance
 from qiime2.plugins.diversity.actions import beta_correlation
 import numpy as np
