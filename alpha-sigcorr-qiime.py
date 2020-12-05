@@ -87,9 +87,9 @@ def sig_corr_export(metadata=metadata_API,rarefied_table=rarefied,phylogenetic_t
 
 	    os.chdir(path)
 	    for entry in os.listdir(path):
-	    	#The QIIME devs made me sad by exporting correlation results as jsonp,
-	    	#not even normal json, which python could read. This read my jsonps,
-	    	#but I'm not sure if it'll work for everybody.
+	    	#Alpha correlation results from q2-diversity are exported as jsonp,
+	    	#not normal json, so they're a little harder to read with python.
+		#This read my jsonps, but I'm not sure if it'll work for everybody.
 	        if entry.endswith('.jsonp'):
 	            with open(entry) as f:
 	                data = f.read()    
